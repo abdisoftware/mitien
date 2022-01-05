@@ -28,6 +28,9 @@ namespace mitien.Web
             services.AddDbContext<DataContext>(ctx => {
                 ctx.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+            
+            services.AddTransient<SeedDb>();
+            services.AddScoped<IRepository, Repository>();
             services.AddControllersWithViews();
         }
 
